@@ -26,7 +26,6 @@ const sync = async () => {
     await addGitlabOrigins(repositories);
     await createMissingGitlabRepositories(repositories);
     await updateGitlabRemoteRepositories(repositories);
-    console.log(repositories)
 };
 
 const parseFileToJsonArray = (path) => {
