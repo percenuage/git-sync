@@ -1,6 +1,6 @@
 # Git Sync
 
-> Synchronize Git remote between Gitlab, Github, Bitbucket, etc.
+> A script to synchronize Bitbucket remote repositories to Gitlab.
 
 ## Bitbucket
 

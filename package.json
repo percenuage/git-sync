@@ -1,17 +1,19 @@
 {
   "name": "git-sync",
   "version": "1.0.0",
-  "description": "Synchronize Git remote between Gitlab, Github, Bitbucket, etc.",
+  "description": "A script to synchronize Bitbucket remote repositories to Gitlab.",
   "main": "index.js",
   "scripts": {
     "start": "node .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Axel Gendillard",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@gitbeaker/node": "^17.0.1",
     "bitbucket": "^2.0.3",
-    "lodash": "^4.17.15"
+    "dotenv": "^8.2.0",
+    "lodash": "^4.17.15",
+    "node-cron": "^2.0.3"
   }
 }
