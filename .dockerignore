@@ -1,0 +1,7 @@
+.*
+.yml
+*.md
+node_modules
+test
+Dockerfile
+
