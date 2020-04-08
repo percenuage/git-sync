@@ -2,13 +2,34 @@
 
 > A script to synchronize Bitbucket remote repositories to Gitlab.
 
-## Bitbucket
+## Getting Started
 
-> https://github.com/MunifTanjim/node-bitbucket
-> https://bitbucketjs.netlify.com/#api-_
-> https://developer.atlassian.com/bitbucket/api/2/reference/
+### Environment Variables
 
-## Gitlab
+| Variable           | Default | Example   |
+|--------------------|---------|-----------|
+| BITBUCKET_USERNAME | -       | jdoe      |
+| BITBUCKET_PASSWORD | -       | ****      |
+| BITBUCKET_GROUP_ID | -       | johndoe   |
+| GITLAB_TOKEN       | -       | ****      |
+| GITLAB_GROUP_ID    | -       | 0000000   |
+| EXEC_CWD           | .       | /tmp      |
+| CRONTAB            | -       | * * * * * |
 
-> https://github.com/jdalrymple/gitbeaker
-> https://gitlab.com/gitlab-org/gitlab/tree/master/doc/api#personal-access-tokens
+### Docker
+
+```sh
+$ docker run -e GITLAB_TOKEN=****** -e CRONTAB="* * * * *" percenuage/get-sync:latest
+
+or
+
+$ docker run --env-file=.env percenuage/get-sync:latest
+```
+
+## Sources
+
+- [Node-Bitbucket](https://github.com/MunifTanjim/node-bitbucket)
+- [Bitbucketjs Docs](https://bitbucketjs.netlify.com/#api-_)
+- [Bitbucket API Docs](https://developer.atlassian.com/bitbucket/api/2/reference/)
+- [Gitbeaker](https://github.com/jdalrymple/gitbeaker)
+- [Gitlap Api Docs](https://gitlab.com/gitlab-org/gitlab/tree/master/doc/api#personal-access-tokens)
