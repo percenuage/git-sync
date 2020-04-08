@@ -1,6 +1,6 @@
 {
   "name": "git-sync",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A script to synchronize Bitbucket remote repositories to Gitlab.",
   "main": "index.js",
   "scripts": {
