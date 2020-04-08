@@ -6,7 +6,7 @@ const { Gitlab } = require('@gitbeaker/node');
 const { Bitbucket } = require('bitbucket');
 
 const { BITBUCKET_USERNAME, BITBUCKET_PASSWORD, BITBUCKET_GROUP_ID, GITLAB_TOKEN, GITLAB_GROUP_ID } = process.env;
-const EXEC_CWD = process.env.EXEC_CWD || '.';
+const EXEC_CWD = process.env.EXEC_CWD || '/tmp';
 const BITBUCKET_ORIGIN = `https://${BITBUCKET_USERNAME}:"${BITBUCKET_PASSWORD}"@bitbucket.org`;
 const GITLAB_ORIGIN = `https://oauth2:${GITLAB_TOKEN}@gitlab.com`;
 
@@ -97,7 +97,7 @@ const gitSyncBitbucketToGitlab = async (repo) => {
     await execCommand(`git clone --bare ${BITBUCKET_ORIGIN}/${repo.bitbucketPath}`);
 
     console.info(`> Push ${repo.name}.git to Gitlab ${repo.gitlabPath}`);
-    await execCommand(`git -C ${EXEC_CWD}/${repo.name}.git push --mirror ${GITLAB_ORIGIN}/${repo.gitlabPath}`);
+    await execCommand(`git -C ${repo.name}.git push --mirror ${GITLAB_ORIGIN}/${repo.gitlabPath}`);
 
     console.info(`> Delete ${repo.name}.git`);
     fs.rmdir(`${EXEC_CWD}/${repo.name}.git`,{ recursive: true }, console.error);
