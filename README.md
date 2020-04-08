@@ -9,17 +9,18 @@
 | Variable           | Default | Example   |
 |--------------------|---------|-----------|
 | BITBUCKET_USERNAME | -       | jdoe      |
-| BITBUCKET_PASSWORD | -       | ****      |
+| BITBUCKET_PASSWORD | -       | xxxx      |
 | BITBUCKET_GROUP_ID | -       | johndoe   |
-| GITLAB_TOKEN       | -       | ****      |
+| GITLAB_TOKEN       | -       | xxxx      |
 | GITLAB_GROUP_ID    | -       | 0000000   |
-| EXEC_CWD           | .       | /tmp      |
+| REPOSITORIES       | -       | rep1,rep2 |
+| EXEC_CWD           | /tmp    | /tmp      |
 | CRONTAB            | -       | * * * * * |
 
 ### Docker
 
 ```sh
-$ docker run -e GITLAB_TOKEN=****** -e CRONTAB="* * * * *" percenuage/get-sync:latest
+$ docker run -e GITLAB_TOKEN=xxxxx -e REPOSITORIES=git-sync -e CRONTAB="* * * * *" percenuage/get-sync:latest
 
 or
 

@@ -9,7 +9,6 @@ const { BITBUCKET_USERNAME, BITBUCKET_PASSWORD, BITBUCKET_GROUP_ID, GITLAB_TOKEN
 const EXEC_CWD = process.env.EXEC_CWD || '.';
 const BITBUCKET_ORIGIN = `https://${BITBUCKET_USERNAME}:"${BITBUCKET_PASSWORD}"@bitbucket.org`;
 const GITLAB_ORIGIN = `https://oauth2:${GITLAB_TOKEN}@gitlab.com`;
-const REPOSITORIES_PATH = './src/repositories';
 
 const gitlab = new Gitlab({ token: GITLAB_TOKEN });
 const bitbucket = new Bitbucket({
@@ -20,7 +19,7 @@ const bitbucket = new Bitbucket({
 });
 
 const sync = async () => {
-    let names = parseFileToJsonArray(REPOSITORIES_PATH);
+    let names = getRepositoryNames();
     names = await filterExistedNamesFromBitbucket(names);
     const repositories = initRepositories(names);
     await addGitlabOrigins(repositories);
@@ -28,8 +27,8 @@ const sync = async () => {
     await updateGitlabRemoteRepositories(repositories);
 };
 
-const parseFileToJsonArray = (path) => {
-    return fs.readFileSync(path, { encoding: 'utf8' }).trim().split('\n');
+const getRepositoryNames = () => {
+    return process.env.REPOSITORIES.trim().split(',');
 };
 
 const filterExistedNamesFromBitbucket = async (names) => {
