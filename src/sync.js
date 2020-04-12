@@ -83,8 +83,8 @@ const createMissingGitlabRepositories = async (repositories) => {
 };
 
 const createGitlabRepository = async (name) => {
-    const description = ":warning: Do not push here :warning: Auto Update from Bitbucket :exclamation: " +
-        "You can fully migrate to Gitlab by deleting the repository on Bitbucket (and this message).";
+    const description = ":warning: Outdated Repository :warning: The original is on Bitbucket supertec-alpha account! " +
+        "Consider fully migrating to Gitlab using Gitlab's migration functionality.";
     return gitlab.Projects.create({ name, namespace_id: GITLAB_GROUP_ID, description, default_branch: 'master' });
 };
 
