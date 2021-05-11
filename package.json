@@ -13,7 +13,7 @@
     "@gitbeaker/node": "^17.0.1",
     "bitbucket": "^2.0.3",
     "dotenv": "^8.2.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "node-cron": "^2.0.3"
   }
 }
